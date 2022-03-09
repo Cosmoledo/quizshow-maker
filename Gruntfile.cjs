@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
 	grunt.initConfig({
-		clean: ["dist"],
+		clean: ["build"],
 		copy: {
 			main: {
 				files: [{
@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 						"./public/css/index.min.css",
 						"./public/css/bootstrap.min.css",
 					],
-					dest: "dist"
+					dest: "build"
 				}]
 			}
 		},
@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 					collapseWhitespace: true
 				},
 				files: {
-					"dist/public/index.html": "public/index.html"
+					"build/public/index.html": "public/index.html"
 				}
 			}
 		},
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
 				src: "package.json",
 			},
 			package: {
-				dest: "dist/package.json",
+				dest: "build/package.json",
 				fields: [
 					"main",
 					"name",
