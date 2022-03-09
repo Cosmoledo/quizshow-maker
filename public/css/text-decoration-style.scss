@@ -1,0 +1,7 @@
+$styles: ("solid", "double", "dotted", "dashed", "wavy") !default;
+
+@each $style in $styles {
+	.text-#{$style} {
+		text-decoration-style: unquote($style) !important;
+	}
+}
