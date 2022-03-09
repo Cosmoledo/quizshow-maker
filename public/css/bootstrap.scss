@@ -1,0 +1,112 @@
+/*!
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// scss-docs-start import-stack
+// Configuration
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+// scss-docs-start btn-variant-mixin
+@mixin button-variant($background,
+	$border,
+	$color: color-contrast($background),
+	$hover-background: if($color==$color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount)),
+	$hover-border: if($color==$color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount)),
+	$hover-color: color-contrast($hover-background),
+	$active-background: if($color==$color-contrast-light, shade-color($background, $btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount)),
+	$active-border: if($color==$color-contrast-light, shade-color($border, $btn-active-border-shade-amount), tint-color($border, $btn-active-border-tint-amount)),
+	$active-color: color-contrast($active-background),
+	$disabled-background: $background,
+	$disabled-border: $border,
+	$disabled-color: color-contrast($disabled-background)) {
+	color: $color;
+	@include gradient-bg($background);
+	border-color: $border;
+	@include box-shadow($btn-box-shadow);
+
+	&:hover {
+		color: $hover-color;
+		@include gradient-bg($hover-background);
+		border-color: $hover-border;
+	}
+
+	.btn-check:checked+&,
+	.btn-check:active+&,
+	&:active,
+	&.active,
+	.show>&.dropdown-toggle {
+		color: $active-color;
+		background-color: $active-background;
+		// Remove CSS gradients if they're enabled
+		background-image: if($enable-gradients, none, null);
+		border-color: $active-border;
+
+		&:focus {
+			@if $enable-shadows {
+				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5));
+			}
+
+			@else {
+				// Avoid using mixin so we can pass custom focus shadow properly
+				box-shadow: 0 0 0 $btn-focus-width rgba(mix($color, $border, 15%), .5);
+			}
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		color: $disabled-color;
+		background-color: $disabled-background;
+		// Remove CSS gradients if they're enabled
+		background-image: if($enable-gradients, none, null);
+		border-color: $disabled-border;
+	}
+}
+
+// scss-docs-end btn-variant-mixin
+
+// Layout & components
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/accordion";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/toasts";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/offcanvas";
+@import "../../node_modules/bootstrap/scss/placeholders";
+
+// Helpers
+@import "../../node_modules/bootstrap/scss/helpers";
+
+// Utilities
+@import "../../node_modules/bootstrap/scss/utilities/api";
+// scss-docs-end import-stack

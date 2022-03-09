@@ -1,0 +1,101 @@
+@import "./text-decoration-style.scss";
+@import "./cursors.scss";
+
+button {
+	&:focus {
+		box-shadow: none !important;
+		outline: none !important;
+	}
+
+	&:active {
+		filter: brightness(90%);
+	}
+}
+
+textarea.form-control {
+	resize: none;
+
+	&.ESTIMATE {
+		font-size: 0.75rem;
+	}
+}
+
+.card {
+	&.disabled .card-body {
+		opacity: 0.75;
+
+		&::after {
+			background: repeating-linear-gradient(145deg, transparent, transparent 16px, #BBB 20px);
+			content: "";
+			height: 94%;
+			left: 3%;
+			position: absolute;
+			top: 3%;
+			width: 94%;
+		}
+	}
+
+	&.card-placeholder .card-body div {
+		background-color: #444;
+		border-radius: 0.25rem;
+		height: calc(1.3rem + 0.6vw);
+		opacity: 0.1;
+		animation: placeholder-glow 2s ease-in-out infinite;
+
+		&.information {
+			height: calc(5rem + 0.6vw);
+		}
+	}
+}
+
+.answer,
+.question {
+	min-height: 140px;
+}
+
+.buzzer {
+	aspect-ratio: 1/1;
+	background: transparent;
+	border: 0;
+	outline: 0;
+	position: relative;
+
+	&::before {
+		aspect-ratio: 1/1;
+		background: #E51E42;
+		border-radius: 50%;
+		border: 0.2em solid #0F1C3F;
+		content: "";
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+		width: inherit;
+	}
+
+	&:not(.buzzed):not(.disabled):active::before {
+		box-shadow: 0 0 20px 15px rgba(15, 28, 63, 0.5);
+		filter: brightness(95%);
+	}
+
+	&.buzzed {
+		pointer-events: none;
+
+		&::before {
+			background: #17B63E;
+		}
+	}
+}
+
+#textbox {
+	max-width: 430px;
+
+	&:focus {
+		border-color: #CED4DA;
+		box-shadow: none;
+	}
+}
+
+#players {
+	height: calc(100vh - 20px);
+	overflow: hidden auto;
+}
