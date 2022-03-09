@@ -47,6 +47,14 @@ module.exports = function (grunt) {
 				]
 			}
 		},
+		ts: {
+			default: {
+				tsconfig: "./tsconfig.json",
+				options: {
+					failOnTypeErrors: false,
+				}
+			}
+		},
 		webpack: {
 			myConfig: require("./webpack.config.cjs")
 		},
@@ -56,7 +64,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-htmlmin");
 	grunt.loadNpmTasks("grunt-update-json");
+	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-webpack");
 
-	grunt.registerTask("default", ["clean", "copy", "htmlmin", "update_json", "webpack"]);
+	grunt.registerTask("default", ["clean", "copy", "htmlmin", "update_json", "ts", "webpack"]);
 };
