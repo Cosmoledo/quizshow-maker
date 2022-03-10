@@ -13,7 +13,9 @@ button {
 }
 
 textarea.form-control {
-	resize: none;
+	&:not(.resizeable) {
+		resize: none;
+	}
 
 	&.ESTIMATE {
 		font-size: 0.75rem;

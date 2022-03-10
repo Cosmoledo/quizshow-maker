@@ -79,7 +79,7 @@ io.use((socket: any, next) => {
 
 			case Types.S_CREATE_NEW_ROOM:
 				const roomID = uuid.v4();
-				createRoom(roomID, socket);
+				createRoom(roomID, socket, payload.config as any);
 
 				callback({
 					roomID,

@@ -40,14 +40,13 @@ export default class Room {
 		return this.roomID;
 	}
 
-	constructor(id: string, socket: SessionSocket) {
+	constructor(id: string, socket: SessionSocket, config: Config.root) {
 		socket.join(id);
 
 		this.roomID = id;
 		this.host = new User(socket, "host");
 
-		const config = loadConfig();
-		this.config = config;
+		this.config = config || loadConfig(); // TODO
 		this.qHandler = new QuestionHandler(this, this.config.questions);
 
 		this.sendJoin(this.host);
