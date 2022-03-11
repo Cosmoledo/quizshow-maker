@@ -26,6 +26,7 @@ const startGameButton = view.querySelector("#start-game") as HTMLButtonElement;
 const fullyReadButton = view.querySelector("#fully-read") as HTMLButtonElement;
 const nextQuestionButton = view.querySelector("#next-question") as HTMLButtonElement;
 const stopQuestionButton = view.querySelector("#stop-question") as HTMLButtonElement;
+const questionAmountsElement = view.querySelector("#question-amount") as HTMLDivElement;
 
 function toggleFullyReadButton(active: boolean): void {
 	fullyReadButton.classList.toggle("btn-danger", active);
@@ -148,9 +149,9 @@ class Player {
 		});
 	}
 
-	private activateAnswerButtons(activate: boolean): void {
+	public activateAnswerButtons(activate: boolean, activateWrong: boolean = activate): void {
 		this.answerCorrect.classList.toggle("disabled", !activate);
-		this.answerWrong.classList.toggle("disabled", !activate);
+		this.answerWrong.classList.toggle("disabled", !activateWrong);
 	}
 }
 
@@ -167,8 +168,11 @@ export default async function init(): Promise < void > {
 	});
 	//
 
+	let questionAmount = 0;
+
 	getClient().get(Types.C_STARTED_GAME, async (data: any) => {
 		question.innerHTML = translate("GameWillStart");
+		questionAmount = data.questionAmount;
 
 		const buzzers = Array.from(view.querySelectorAll(".BUZZER")) as HTMLElement[];
 		const estimates = Array.from(view.querySelectorAll(".ESTIMATE")) as HTMLElement[];
@@ -203,6 +207,8 @@ export default async function init(): Promise < void > {
 			}) as PlayerEvent);
 		});
 
+		let playedQuestions = 0;
+
 		const playQuestion = async (data: Config.Question): Promise < void > => {
 			if (lastQuestionType !== data.type) {
 				lastQuestionType = data.type;
@@ -216,7 +222,6 @@ export default async function init(): Promise < void > {
 
 				} else {
 					await Promise.all(estimates.map(est => showElement(est)));
-					stopQuestionButton.classList.remove("disabled");
 					await showElement(stopQuestionButton);
 					toggleFullyReadButton(false);
 				}
@@ -224,8 +229,13 @@ export default async function init(): Promise < void > {
 
 			if (!data.hasNext)
 				await hideElement(nextQuestionButton);
-			else
+			else {
+				stopQuestionButton.classList.remove("disabled");
 				nextQuestionButton.classList.remove("disabled");
+			}
+
+			playedQuestions++;
+			questionAmountsElement.innerHTML = playedQuestions + " / " + questionAmount;
 
 			question.innerHTML = data.question;
 			answer.innerHTML = data.answer + "";
@@ -250,8 +260,10 @@ export default async function init(): Promise < void > {
 	}): void {
 		console.log(question, guesses);
 
-		for (const key in guesses)
+		for (const key in guesses) {
 			players[key].setText(guesses[key]);
+			players[key].activateAnswerButtons(true, false);
+		}
 	}
 
 	// handle player events

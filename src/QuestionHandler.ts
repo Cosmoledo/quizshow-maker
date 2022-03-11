@@ -54,7 +54,8 @@ export default class QuestionHandler {
 		this.started = true;
 
 		io.to(this.room.id).emit(Types.C_STARTED_GAME, {
-			timestamp: new Date().getTime()
+			timestamp: new Date().getTime(),
+			questionAmount: this.questions.length,
 		});
 
 		setTimeout(() => {
@@ -110,11 +111,12 @@ export default class QuestionHandler {
 			return;
 
 		user.socket.emit(Types.C_STARTED_GAME, {
-			skipAnim: true,
 			message: "",
-			visible: this.visible,
 			question: user.nickname === "host" || this.visible ? this.current : this.currentHidden,
-			timestamp: new Date().getTime()
+			questionAmount: this.questions.length,
+			skipAnim: true,
+			timestamp: new Date().getTime(),
+			visible: this.visible,
 		});
 	}
 
