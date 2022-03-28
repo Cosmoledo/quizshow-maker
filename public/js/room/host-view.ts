@@ -218,8 +218,6 @@ export default async function init(): Promise < void > {
 				if (data.type === "BUZZER") {
 					await Promise.all(buzzers.map(buz => showElement(buz)));
 					await hideElement(stopQuestionButton);
-					toggleFullyReadButton(true);
-
 				} else {
 					await Promise.all(estimates.map(est => showElement(est)));
 					await showElement(stopQuestionButton);
@@ -230,6 +228,8 @@ export default async function init(): Promise < void > {
 			if (!data.hasNext)
 				await hideElement(nextQuestionButton);
 			else {
+				if (data.type === "BUZZER")
+					toggleFullyReadButton(true);
 				stopQuestionButton.classList.remove("disabled");
 				nextQuestionButton.classList.remove("disabled");
 			}
