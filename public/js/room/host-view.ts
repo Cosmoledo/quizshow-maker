@@ -113,11 +113,16 @@ class Player {
 
 	public handleGuess(guess: Guess): void {
 		if (guess.answer === undefined) {
+			// BUZZER
 			this.activateAnswerButtons(true);
 			this.buzzer.classList.add("buzzed");
 			this.buzzerPos.innerHTML = guess.place + "";
-		} else
+		} else {
+			// ESTIMATE
 			this.setText(guess.answer);
+			if (guess.final)
+				this.activateAnswerButtons(true);
+		}
 	}
 
 	public reset(): void {

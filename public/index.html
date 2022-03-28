@@ -85,9 +85,15 @@
 				<div class="col-lg-8 col-md-8 mx-auto">
 					<h1 class="question fw-light"></h1>
 
-					<button id="buzzer" class="buzzer mt-5" style="width: 300px"></button>
+					<div id="buzzer-container">
+						<button class="buzzer mt-5" style="width: 300px"></button>
+					</div>
 
-					<textarea id="textbox" class="form-control mx-auto d-none" placeholder=" " autocomplete="off" rows="5" maxlength="200"></textarea>
+					<div id="estimate-container" class="d-none">
+						<textarea class="form-control mx-auto" placeholder=" " autocomplete="off" rows="5" maxlength="200"></textarea>
+
+						<button class="btn btn-primary w-25 mt-2"></button>
+					</div>
 				</div>
 			</div>
 		</section>

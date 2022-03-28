@@ -39,7 +39,8 @@ export function translateElements(): void {
 	set("#form-host-game button:nth-of-type(2)", "Back");
 
 	set("#game-player .question", "WaitingToStart");
-	set("#game-player #textbox", "EstimateInput", "placeholder");
+	set("#game-player #estimate-container textarea", "EstimateInput", "placeholder");
+	set("#game-player #estimate-container button", "Done");
 
 	set("#game-host .question", "WaitingForPlayers");
 	set("#game-host .w-100 button:nth-of-type(1)", "StartGame");

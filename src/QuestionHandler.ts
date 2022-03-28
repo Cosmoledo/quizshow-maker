@@ -1,3 +1,4 @@
+import User from "./User.js";
 import Room from "./Room.js";
 import {
 	Answer,
@@ -10,7 +11,6 @@ import {
 import {
 	io
 } from "./index.js";
-import User from "./User.js";
 
 export default class QuestionHandler {
 	private questions: Config.Question[];
@@ -19,11 +19,11 @@ export default class QuestionHandler {
 	private score: {
 		[key: string]: number;
 	} = {};
-	private answerTimes: {
-		[key: string]: number;
-	} = {};
-	private guess: {
-		[key: string]: string;
+	private guesses: {
+		[key: string]: {
+			time: number;
+			answer: string;
+		};
 	} = {};
 	private started: boolean = false;
 	private visible: boolean = false;
@@ -63,10 +63,13 @@ export default class QuestionHandler {
 	}
 
 	public setAnswer(id: string, payload: Answer): void {
-		if (this.answerTimes[id] && payload.time < this.answerTimes[id])
+		if (this.guesses[id] && payload.time < this.guesses[id].time)
 			return;
 
-		this.answerTimes[id] = payload.time;
+		if (!this.guesses[id])
+			this.guesses[id] = ({}) as any;
+
+		this.guesses[id].time = payload.time;
 
 		const changeEvents = [];
 
@@ -84,12 +87,13 @@ export default class QuestionHandler {
 				break;
 
 			case "ESTIMATE":
-				this.guess[id] = payload.answer as string;
+				this.guesses[id].answer = payload.answer as string;
 				changeEvents.push(({
 					id,
 					type: PlayerEvents.GUESS,
 					guess: {
-						answer: payload.answer
+						answer: payload.answer,
+						final: payload.final || false
 					}
 				}) as PlayerEvent);
 				break;
@@ -130,7 +134,7 @@ export default class QuestionHandler {
 		id: string,
 		correct: boolean,
 	}): void {
-		this.answerTimes = {};
+		this.guesses = ({}) as any;
 
 		if (payload.correct) {
 			this.score[payload.id] += this.room.config.points.win;
@@ -182,15 +186,15 @@ export default class QuestionHandler {
 
 	private getBuzzerPlaces(): string[] {
 		const places: [number, string][] = [];
-		for (const key in this.answerTimes)
-			places.push([this.answerTimes[key], key]);
+		for (const key in this.guesses)
+			places.push([this.guesses[key].time, key]);
 		places.sort(([timeA], [timeB]) => timeA - timeB);
 
 		return places.map(([, id]) => id);
 	}
 
 	private next(): void {
-		this.answerTimes = {};
+		this.guesses = {};
 		this.visible = false;
 
 		// send question to players

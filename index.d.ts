@@ -1,6 +1,6 @@
 // SHARED
 
-export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "EnterCredentials" | "Estimate" | "EstimateInput" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "Host" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Score" | "StartGame" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
+export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "Done" | "EnterCredentials" | "Estimate" | "EstimateInput" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "Host" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Score" | "StartGame" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
 
 export const enum Types {
 	C_GAME_QUESTION = "C_GAME_QUESTION",
@@ -45,6 +45,7 @@ interface PlayerEvent {
 
 interface Guess {
 	answer ? : string;
+	final ? : boolean;
 	place ? : number;
 }
 

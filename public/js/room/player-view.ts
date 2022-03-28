@@ -19,8 +19,11 @@ import {
 
 const view = document.querySelector("#game-player") as HTMLElement;
 const question = view.querySelector(".question") as HTMLHeadingElement;
-const buzzer = view.querySelector("#buzzer") as HTMLButtonElement;
-const textbox = view.querySelector("#textbox") as HTMLTextAreaElement;
+const buzzerContainer = view.querySelector("#buzzer-container") as HTMLButtonElement;
+const buzzerButton = buzzerContainer.querySelector("button") as HTMLButtonElement;
+const estimateContainer = view.querySelector("#estimate-container") as HTMLButtonElement;
+const estimateTextarea = estimateContainer.querySelector("textarea") as HTMLTextAreaElement;
+const estimateFinished = estimateContainer.querySelector("button") as HTMLButtonElement;
 const header = document.querySelector(".navbar") as HTMLDivElement;
 const headerBuzzer = header.querySelector("#question-buzzer") as HTMLHeadingElement;
 const headerEstimate = header.querySelector("#question-estimate") as HTMLHeadingElement;
@@ -46,10 +49,10 @@ function setupMinigame(): () => void {
 		start = now;
 	}
 
-	buzzer.addEventListener("pointerdown", hitBuzzer);
+	buzzerButton.addEventListener("pointerdown", hitBuzzer);
 
 	return () => {
-		buzzer.removeEventListener("pointerdown", hitBuzzer);
+		buzzerButton.removeEventListener("pointerdown", hitBuzzer);
 	};
 }
 
@@ -68,7 +71,7 @@ export default async function init(): Promise < void > {
 		timeDiff = data.timestamp - new Date().getTime();
 
 		stopMinigame();
-		await hideElement(buzzer);
+		await hideElement(buzzerContainer);
 		setupInputs();
 
 		console.log(data);
@@ -123,8 +126,7 @@ let timeDiff: number = 0;
 function setupInputs(): void {
 	// BUZZER
 	{
-		// eslint-disable-next-line no-inner-declarations
-		function hitBuzzer(): void {
+		const hitBuzzer = () => {
 			if (type !== "BUZZER")
 				return;
 
@@ -134,54 +136,59 @@ function setupInputs(): void {
 				time: new Date().getTime() + timeDiff,
 				type: RoomEvents.ANSWER
 			}) as Answer);
-		}
+		};
 
-		buzzer.addEventListener("pointerdown", hitBuzzer);
+		buzzerButton.addEventListener("pointerdown", hitBuzzer);
 
-		const keydown = (event: KeyboardEvent) => {
+		document.addEventListener("keydown", (event: KeyboardEvent) => {
 			if (!(event.key === " " || event.keyCode === 32))
 				return;
 
 			hitBuzzer();
-		};
-
-		document.addEventListener("keydown", keydown);
+		});
 	}
 
 	// ESTIMATE
 	{
-		const textboxChanged = () => {
+		estimateTextarea.addEventListener("keyup", () => {
 			if (type !== "ESTIMATE")
 				return;
 
 			getClient().send(Types.S_ROOM_EVENT, ({
+				answer: estimateTextarea.value.trim(),
 				time: new Date().getTime(),
-				answer: textbox.value.trim(),
 				type: RoomEvents.ANSWER
 			}) as Answer);
-		};
+		});
 
-		textbox.addEventListener("keyup", textboxChanged);
-
-		const textboxDown = (event: KeyboardEvent) => {
+		estimateTextarea.addEventListener("keydown", (event: KeyboardEvent) => {
 			if (type !== "ESTIMATE")
 				return;
 
 			if (event.key === "Tab" || event.keyCode === 9) {
 				event.preventDefault();
-				textbox.value += "\t";
+				estimateTextarea.value += "\t";
 			}
-		};
+		});
 
-		textbox.addEventListener("keydown", textboxDown);
+		estimateFinished.addEventListener("click", () => {
+			estimateFinished.setAttribute("disabled", "true");
+			estimateTextarea.setAttribute("disabled", "true");
+			getClient().send(Types.S_ROOM_EVENT, ({
+				answer: estimateTextarea.value.trim(),
+				final: true,
+				time: new Date().getTime(),
+				type: RoomEvents.ANSWER,
+			}) as Answer);
+		});
 	}
 }
 
 function toggleBuzzerState(active: boolean): void {
 	if (active)
-		buzzer.classList.remove("buzzed", "cursor-default");
+		buzzerButton.classList.remove("buzzed", "cursor-default");
 	else
-		buzzer.classList.add("buzzed", "cursor-default");
+		buzzerButton.classList.add("buzzed", "cursor-default");
 }
 
 let lastQuestionID: string;
@@ -195,19 +202,20 @@ async function playQuestion(questionData: Config.Question): Promise < void > {
 		switch (questionData.type) {
 			case "BUZZER":
 				await hideElement(headerEstimate);
-				await hideElement(textbox);
+				await hideElement(estimateContainer);
 				await showElement(headerBuzzer);
 				toggleBuzzerState(true);
-				await showElement(buzzer);
+				await showElement(buzzerContainer);
 				break;
 
 			case "ESTIMATE":
 				await hideElement(headerBuzzer);
-				await hideElement(buzzer);
+				await hideElement(buzzerContainer);
 				await showElement(headerEstimate);
-				textbox.value = "";
-				textbox.removeAttribute("disabled");
-				await showElement(textbox);
+				estimateTextarea.value = "";
+				estimateTextarea.removeAttribute("disabled");
+				estimateFinished.removeAttribute("disabled");
+				await showElement(estimateContainer);
 				break;
 		}
 	}

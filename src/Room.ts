@@ -13,7 +13,7 @@ import {
 } from "../index.js";
 
 function loadConfig(): Config.root {
-	const content = fs.readFileSync(path.resolve("room-config.json")) + "";
+	const content = fs.readFileSync(path.resolve("room-config-2.json")) + "";
 	let json;
 
 	try {
@@ -32,7 +32,7 @@ export default class Room {
 	private roomID: string;
 	private host: User;
 	private createdAt: Date = new Date();
-	private users: User[] = [];
+	private players: User[] = [];
 	private qHandler: QuestionHandler;
 	public config: Config.root;
 
@@ -55,14 +55,14 @@ export default class Room {
 	public addUser(nickname: string, socket: SessionSocket): void {
 		socket.join(this.roomID);
 
-		const newUser = new User(socket, nickname);
-		this.users.push(newUser);
+		const newPlayer = new User(socket, nickname);
+		this.players.push(newPlayer);
 
-		this.informOthersAboutMe(newUser, PlayerEvents.JOIN);
+		this.informOthersAboutMe(newPlayer, PlayerEvents.JOIN);
 
 		this.informMeAboutOthers(socket);
 
-		this.sendJoin(newUser);
+		this.sendJoin(newPlayer);
 	}
 
 	public rejoin(socket: SessionSocket): void {
@@ -91,7 +91,7 @@ export default class Room {
 	}
 
 	public hasUser(id: string): boolean {
-		return this.host.id === id || this.users.some(member => member.id === id);
+		return this.host.id === id || this.players.some(player => player.id === id);
 	}
 
 	public sendToHost(type: Types, payload: unknown): void {
@@ -103,13 +103,13 @@ export default class Room {
 	}
 
 	public getPlayerIDs(): string[] {
-		return this.users.map(u => u.id);
+		return this.players.map(player => player.id);
 	}
 
 	public getUser(id: string): User {
 		return (this.host.id === id ?
 			this.host :
-			this.users.find(member => member.id === id)
+			this.players.find(player => player.id === id)
 		) as User;
 	}
 
@@ -146,11 +146,11 @@ export default class Room {
 	}
 
 	private informMeAboutOthers(socket: SessionSocket): void {
-		const others = this.users
-			.filter(user => user.id !== socket.sessionID)
-			.map(user => ({
-				id: user.id,
-				nickname: user.nickname,
+		const others = this.players
+			.filter(player => player.id !== socket.sessionID)
+			.map(player => ({
+				id: player.id,
+				nickname: player.nickname,
 				score: 0,
 				type: PlayerEvents.JOIN,
 			}) as PlayerEvent);
