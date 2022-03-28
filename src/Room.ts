@@ -46,7 +46,7 @@ export default class Room {
 		this.roomID = id;
 		this.host = new User(socket, "host");
 
-		this.config = config || loadConfig(); // TODO
+		this.config = /* config || */ loadConfig(); // TODO
 		this.qHandler = new QuestionHandler(this, this.config.questions);
 
 		this.sendJoin(this.host);
@@ -137,10 +137,6 @@ export default class Room {
 
 			case RoomEvents.NEXT_QUESTION:
 				this.qHandler.nextQuestion();
-				break;
-
-			case RoomEvents.STOP_ESTIMATE:
-				this.qHandler.stopEstimate();
 				break;
 
 			default:

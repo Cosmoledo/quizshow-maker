@@ -45,5 +45,4 @@ export function translateElements(): void {
 	set("#game-host .w-100 button:nth-of-type(1)", "StartGame");
 	set("#game-host .w-100 button:nth-of-type(2)", "ReadQuestion");
 	set("#game-host .w-100 button:nth-of-type(3)", "NextQuestion");
-	set("#game-host .w-100 button:nth-of-type(4)", "StopQuestion");
 }

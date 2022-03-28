@@ -25,7 +25,6 @@ const answer = view.querySelector(".answer") as HTMLDivElement;
 const startGameButton = view.querySelector("#start-game") as HTMLButtonElement;
 const fullyReadButton = view.querySelector("#fully-read") as HTMLButtonElement;
 const nextQuestionButton = view.querySelector("#next-question") as HTMLButtonElement;
-const stopQuestionButton = view.querySelector("#stop-question") as HTMLButtonElement;
 const questionAmountsElement = view.querySelector("#question-amount") as HTMLDivElement;
 
 function toggleFullyReadButton(active: boolean): void {
@@ -196,17 +195,6 @@ export default async function init(): Promise < void > {
 			});
 		});
 
-		stopQuestionButton.addEventListener("click", () => {
-			stopQuestionButton.classList.add("disabled");
-
-			if (lastQuestionType !== "ESTIMATE")
-				return;
-
-			getClient().send(Types.S_ROOM_EVENT, ({
-				type: RoomEvents.STOP_ESTIMATE
-			}) as PlayerEvent);
-		});
-
 		let playedQuestions = 0;
 
 		const playQuestion = async (data: Config.Question): Promise < void > => {
@@ -217,10 +205,8 @@ export default async function init(): Promise < void > {
 
 				if (data.type === "BUZZER") {
 					await Promise.all(buzzers.map(buz => showElement(buz)));
-					await hideElement(stopQuestionButton);
 				} else {
 					await Promise.all(estimates.map(est => showElement(est)));
-					await showElement(stopQuestionButton);
 					toggleFullyReadButton(false);
 				}
 			}
@@ -230,7 +216,6 @@ export default async function init(): Promise < void > {
 			else {
 				if (data.type === "BUZZER")
 					toggleFullyReadButton(true);
-				stopQuestionButton.classList.remove("disabled");
 				nextQuestionButton.classList.remove("disabled");
 			}
 

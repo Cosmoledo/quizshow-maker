@@ -27,7 +27,6 @@ export default class QuestionHandler {
 	} = {};
 	private started: boolean = false;
 	private visible: boolean = false;
-	private stopped: boolean = false;
 
 	public get current(): Config.Question {
 		const cur = this.questions[this.index];
@@ -64,9 +63,6 @@ export default class QuestionHandler {
 	}
 
 	public setAnswer(id: string, payload: Answer): void {
-		if (this.stopped)
-			return;
-
 		if (this.answerTimes[id] && payload.time < this.answerTimes[id])
 			return;
 
@@ -184,23 +180,6 @@ export default class QuestionHandler {
 		}) as PlayerEvent);
 	}
 
-	public stopEstimate(): void {
-		if (this.stopped)
-			return;
-
-		this.stopped = true;
-
-		this.room.sendToHost(Types.C_PLAYER_CHANGE, ({
-			type: RoomEvents.STOP_ESTIMATE,
-			guesses: this.guess,
-			question: this.current
-		}));
-
-		this.room.sendFromHost(Types.C_PLAYER_CHANGE, ({
-			type: RoomEvents.STOP_ESTIMATE,
-		}) as PlayerEvent);
-	}
-
 	private getBuzzerPlaces(): string[] {
 		const places: [number, string][] = [];
 		for (const key in this.answerTimes)
@@ -213,7 +192,6 @@ export default class QuestionHandler {
 	private next(): void {
 		this.answerTimes = {};
 		this.visible = false;
-		this.stopped = false;
 
 		// send question to players
 		if (this.current.type === "ESTIMATE")

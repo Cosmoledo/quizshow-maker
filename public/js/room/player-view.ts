@@ -109,10 +109,6 @@ export default async function init(): Promise < void > {
 						toggleBuzzerState(da.buzzer === "reset");
 						break;
 
-					case RoomEvents.STOP_ESTIMATE:
-						textbox.setAttribute("disabled", "true");
-						break;
-
 					default:
 						break;
 				}

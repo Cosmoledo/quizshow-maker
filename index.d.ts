@@ -1,6 +1,6 @@
 // SHARED
 
-export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "EnterCredentials" | "Estimate" | "EstimateInput" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "Host" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Score" | "StartGame" | "StopQuestion" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
+export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "EnterCredentials" | "Estimate" | "EstimateInput" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "Host" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Score" | "StartGame" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
 
 export const enum Types {
 	C_GAME_QUESTION = "C_GAME_QUESTION",
@@ -23,7 +23,6 @@ export const enum RoomEvents {
 		NEXT_QUESTION = "NEXT_QUESTION",
 		SHOW_QUESTION = "SHOW_QUESTION",
 		START_GAME = "START_GAME",
-		STOP_ESTIMATE = "STOP_ESTIMATE",
 }
 
 type BUZZER_CHANGE = "reset" | "disabled";

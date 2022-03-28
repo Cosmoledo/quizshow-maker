@@ -25,7 +25,6 @@
 		"RoomInvalid": "Es gibt keinen Raum mit dieser ID. Wusstest du, dass das Erstellen sowieso mehr Spaß macht?",
 		"Score": "Punkte",
 		"StartGame": "Spiel starten",
-		"StopQuestion": "Frage beenden",
 		"WaitingForPlayers": "Warten auf weitere Spieler...",
 		"WaitingToStart": "Wir warten, dass es los geht. Wie oft kannst du eig. den Knopf drücken?",
 		"Wrong": "Falsch"
@@ -56,7 +55,6 @@
 		"RoomInvalid": "This game code does not exist. Studies have shown that creating new rooms is more fun anyway.",
 		"Score": "Score",
 		"StartGame": "Start game",
-		"StopQuestion": "Stop Question",
 		"WaitingForPlayers": "Waiting for players to join...",
 		"WaitingToStart": "We are waiting to start the game. Meanwhile, how often can you press the button?",
 		"Wrong": "Wrong"
