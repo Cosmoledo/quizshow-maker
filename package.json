@@ -39,6 +39,7 @@
 	"name": "quizshow-maker",
 	"scripts": {
 		"build": "grunt --gruntfile Gruntfile.cjs",
+		"lint": "eslint public/**/*.ts src/**/*.ts",
 		"dev": "nodemon src/index.js",
 		"ts": "tsc -w"
 	},

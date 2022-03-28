@@ -135,3 +135,5 @@ src/**/*.js
 src/**/*.map
 public/css/*.css
 *.tscache
+
+room-config*.json
