@@ -65,17 +65,48 @@
 			</div>
 		</section>
 
-		<section id="form-host-game" class="py-5 text-center container d-none">
-			<div class="row py-lg-5">
-				<div class="col-lg-8 col-md-8 mx-auto">
-					<form class="m-auto" novalidate>
-						<h1 class="h3 mb-3 fw-normal">Please make your changes:</h1>
-
-						<textarea id="gameConfig" class="form-control mb-2" placeholder="Enter your game json here" autocomplete="off" rows="10"></textarea>
-
-						<button class="btn btn-primary" type="submit" style="width: 45%"></button>
-						<button class="btn btn-secondary" type="button" style="width: 45%"></button>
-					</form>
+		<section id="form-host-game" class="py-2 text-center container d-none">
+			<div class="d-flex justify-content-between flex-wrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">Spiel erstellen</h1>
+				<button id="start" type="button" class="btn btn-primary px-5">Start</button>
+				<div class="btn-toolbar mb-10 mb-md-0">
+					<div class="btn-group me-5">
+						<button id="details" type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#detailsModal">Details</button>
+					</div>
+					<div class="btn-group">
+						<button id="import" type="button" class="btn btn-sm btn-outline-secondary">Import</button>
+						<button id="export" type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-primary btn-fab fs-1"><span class="icon-add"></span></button>
+			<div id="question-container" class="d-flex flex-column"></div>
+			<div id="detailsModal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
+				<div class="modal-dialog modal-dialog-scrollable">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Details</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid text-start was-validated">
+								<span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Werden nach jedem Raten verteilt, 'Richtig' sollte der Anzahl der Spieler entsprechen">Punkte:</span>
+								<div class="my-2 row">
+									<div class="input-group col-6">
+										<span class="input-group-text">Richtig</span>
+										<input name="points-correct" type="text" class="form-control" value="auto" pattern="auto|(\d+)">
+									</div>
+									<div class="input-group col-6">
+										<span class="input-group-text">Falsch</span>
+										<input name="points-wrong" type="number" class="form-control" value="1" min="0" max="100" pattern="[0-9]+">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -127,7 +158,9 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-		<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js" integrity="sha512-BCMqEPl2dokU3T/EFba7jrfL4FxgY6ryUh4rRC9feZw4yWUslZ3Uf/lPZ5/5UlEjn4prlQTRfIPYQkDrLCZJXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+		<script src="/socket.io/socket.io.js"></script>
 
 		<script src="js/index.js" type="module" defer></script>
 	</body>

@@ -10,6 +10,7 @@ import {
 } from "socket.io";
 
 import logger from "./Logger.js";
+import ConfigValidator from "./ConfigValidator.js";
 import {
 	SessionSocket,
 	Types
@@ -115,6 +116,16 @@ io.use((socket: any, next) => {
 				}
 
 				socket.room.handleEvent(payload.type as any, socket.sessionID, payload);
+				break;
+
+			case Types.S_VALIDATE_CONFIG:
+				try {
+					const json = JSON.parse(payload.jsonString);
+					const isValid = ConfigValidator(json);
+					callback(isValid);
+				} catch (error) {
+					callback(false);
+				}
 				break;
 
 			default:

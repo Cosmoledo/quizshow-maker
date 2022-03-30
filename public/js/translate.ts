@@ -35,8 +35,7 @@ export function translateElements(): void {
 	set("#form-join-game button:nth-of-type(2)", "Back");
 	set("#form-join-game #no-room", "RoomInvalid");
 
-	set("#form-host-game button:nth-of-type(1)", "Host");
-	set("#form-host-game button:nth-of-type(2)", "Back");
+	// set("#form-host-game", "Host");
 
 	set("#game-player .question", "WaitingToStart");
 	set("#game-player #estimate-container textarea", "EstimateInput", "placeholder");

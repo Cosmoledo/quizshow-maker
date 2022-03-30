@@ -202,7 +202,7 @@ export default async function init(): Promise < void > {
 
 		let playedQuestions = 0;
 
-		const playQuestion = async (data: Config.Question): Promise < void > => {
+		const playQuestion = async (data: Config.ExtendedQuestion): Promise < void > => {
 			if (lastQuestionType !== data.type) {
 				lastQuestionType = data.type;
 				await Promise.all(buzzers.map(buz => hideElement(buz)));
@@ -228,7 +228,7 @@ export default async function init(): Promise < void > {
 			questionAmountsElement.innerHTML = playedQuestions + " / " + questionAmount;
 
 			question.innerHTML = data.question;
-			answer.innerHTML = data.answer + "";
+			answer.innerHTML = data.answer;
 		};
 
 		if (data.skipAnim) {

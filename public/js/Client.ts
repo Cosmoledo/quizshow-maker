@@ -9,8 +9,10 @@ class Client {
 		this.socket = (window as any).io();
 	}
 
-	public send(type: string, payload: any = {}, callback ? : (data ? : any) => any): void {
-		this.socket.emit(type, payload, callback);
+	public send(type: string, payload: any = {}): Promise < any > {
+		return new Promise(res => {
+			this.socket.emit(type, payload, res);
+		});
 	}
 
 	public get(type: string, callback: (data ? : any) => any): void {

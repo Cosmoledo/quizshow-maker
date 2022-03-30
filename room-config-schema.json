@@ -1,0 +1,89 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://example.com/object1648668109.json",
+	"title": "Root",
+	"type": "object",
+	"required": [
+		"settings",
+		"questions"
+	],
+	"properties": {
+		"settings": {
+			"$id": "#root/settings",
+			"title": "Settings",
+			"type": "object",
+			"required": [
+				"points"
+			],
+			"properties": {
+				"points": {
+					"$id": "#root/settings/points",
+					"title": "Points",
+					"type": "object",
+					"required": [
+						"wrong",
+						"correct"
+					],
+					"properties": {
+						"correct": {
+							"$id": "#root/settings/points/correct",
+							"title": "Correct",
+							"type": "string",
+							"pattern": "^auto|(\\d+)$"
+						},
+						"wrong": {
+							"$id": "#root/settings/points/wrong",
+							"title": "Wrong",
+							"type": "string",
+							"pattern": "^\\d+$"
+						}
+					}
+				}
+			}
+		},
+		"questions": {
+			"$id": "#root/questions",
+			"title": "Questions",
+			"type": "array",
+			"default": [],
+			"items": {
+				"$id": "#root/questions/items",
+				"title": "Items",
+				"type": "object",
+				"required": [
+					"answer",
+					"id",
+					"question",
+					"type"
+				],
+				"properties": {
+					"answer": {
+						"$id": "#root/questions/items/answer",
+						"title": "Answer",
+						"type": "string"
+					},
+					"id": {
+						"$id": "#root/questions/items/id",
+						"title": "Id",
+						"type": "string"
+					},
+					"question": {
+						"$id": "#root/questions/items/question",
+						"title": "Question",
+						"type": "string"
+					},
+					"type": {
+						"$id": "#root/questions/items/type",
+						"title": "Type",
+						"type": "string",
+						"enum": [
+							"BUZZER",
+							"ESTIMATE"
+						]
+					}
+				}
+			}
+		}
+	}
+}

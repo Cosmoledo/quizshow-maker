@@ -193,7 +193,7 @@ function toggleBuzzerState(active: boolean): void {
 
 let lastQuestionID: string;
 
-async function playQuestion(questionData: Config.Question): Promise < void > {
+async function playQuestion(questionData: Config.ExtendedQuestion): Promise < void > {
 	console.log(questionData);
 	await hideElement(question, undefined, true);
 

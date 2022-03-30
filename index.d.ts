@@ -13,6 +13,7 @@ export const enum Types {
 		S_ENTER_GAME = "S_ENTER_GAME",
 		S_ROOM_EVENT = "S_ROOM_EVENT",
 		S_SET_SESSION_ID = "S_SET_SESSION_ID",
+		S_VALIDATE_CONFIG = "S_VALIDATE_CONFIG",
 }
 
 export const enum RoomEvents {
@@ -58,21 +59,29 @@ declare module Config {
 	export type Type = "BUZZER" | "ESTIMATE";
 
 	export interface Question {
-		answer: string | number;
-		hasNext: boolean;
-		id: string;
+		answer: string;
+		id ? : string;
 		question: string;
-		questionRaw: LOCALE_KEYS;
 		type: Type;
 	}
 
+	export interface ExtendedQuestion extends Question {
+		hasNext: boolean;
+		id: string;
+		questionRaw: LOCALE_KEYS;
+	}
+
 	export interface Points {
-		lose: number;
-		win: number;
+		correct: number;
+		wrong: number;
+	}
+
+	export interface Settings {
+		points: Points;
 	}
 
 	export interface root {
-		points: Points;
+		settings: Settings;
 		questions: Question[];
 	}
 }

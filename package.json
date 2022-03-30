@@ -5,6 +5,7 @@
 		"url": "https://cosmoledo97.de"
 	},
 	"dependencies": {
+		"ajv": "^6.12.6",
 		"express": "^4.17.1",
 		"localizationjs": "^2.0.19",
 		"socket.io": "^4.4.1",
@@ -44,5 +45,5 @@
 		"ts": "tsc -w"
 	},
 	"type": "module",
-	"version": "1.0.0"
+	"version": "0.8.0"
 }

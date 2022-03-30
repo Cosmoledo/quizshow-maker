@@ -53,3 +53,21 @@ export function getFormData(element: HTMLFormElement): {
 
 	return data;
 }
+
+export function isMobile(): boolean {
+	const mobileTest1 = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+	// https://coderwall.com/p/i817wa/one-line-function-to-detect-mobile-devices-with-javascript
+	const mobileTest2 = (typeof (window.orientation) !== "undefined") || (navigator.userAgent.indexOf("IEMobile") !== -1);
+
+	return mobileTest1 || mobileTest2;
+}
+
+export function downloadFile(filename: string, text: string): void {
+	const element = document.createElement("a");
+	element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+	element.setAttribute("download", filename);
+	element.style.display = "none";
+	document.body.appendChild(element);
+	element.click();
+	document.body.removeChild(element);
+}

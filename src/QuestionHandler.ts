@@ -13,7 +13,7 @@ import {
 } from "./index.js";
 
 export default class QuestionHandler {
-	private questions: Config.Question[];
+	private questions: Config.ExtendedQuestion[];
 	private index: number = 0;
 	private room: Room;
 	private score: {
@@ -28,23 +28,23 @@ export default class QuestionHandler {
 	private started: boolean = false;
 	private visible: boolean = false;
 
-	public get current(): Config.Question {
+	public get current(): Config.ExtendedQuestion {
 		const cur = this.questions[this.index];
 		if (cur.hasNext === undefined)
 			cur.hasNext = !!this.questions[this.index + 1];
 		return cur;
 	}
 
-	public get currentHidden(): Config.Question {
+	public get currentHidden(): Config.ExtendedQuestion {
 		return Object.assign({}, this.current, ({
 			question: "",
 			questionRaw: "QuestionNotReadComplete"
-		}) as Config.Question);
+		}) as Config.ExtendedQuestion);
 	}
 
-	constructor(room: Room, questions: Config.Question[]) {
+	constructor(room: Room, questions: Config.Question[] | Config.ExtendedQuestion[]) {
 		this.room = room;
-		this.questions = questions;
+		this.questions = questions as any;
 	}
 
 	public start(): void {
@@ -137,7 +137,7 @@ export default class QuestionHandler {
 		this.guesses = ({}) as any;
 
 		if (payload.correct) {
-			this.score[payload.id] += this.room.config.points.win;
+			this.score[payload.id] += this.room.config.settings.points.correct;
 
 			const scoreChange = ({
 				id: payload.id,
@@ -155,7 +155,7 @@ export default class QuestionHandler {
 				if (key === payload.id)
 					continue;
 
-				this.score[key] += this.room.config.points.lose;
+				this.score[key] += this.room.config.settings.points.wrong;
 
 				const scoreChange = ({
 					id: key,

@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-
 import QuestionHandler from "./QuestionHandler.js";
 import User from "./User.js";
 import {
@@ -11,22 +8,6 @@ import {
 	SessionSocket,
 	Types
 } from "../index.js";
-
-function loadConfig(): Config.root {
-	const content = fs.readFileSync(path.resolve("room-config-2.json")) + "";
-	let json;
-
-	try {
-		json = JSON.parse(content);
-	} catch (error) {
-		console.error(content);
-		throw new Error("Config JSON invalid");
-	}
-
-	// questionsRandomOrder
-
-	return json;
-}
 
 export default class Room {
 	private roomID: string;
@@ -46,7 +27,7 @@ export default class Room {
 		this.roomID = id;
 		this.host = new User(socket, "host");
 
-		this.config = /* config || */ loadConfig(); // TODO
+		this.config = config;
 		this.qHandler = new QuestionHandler(this, this.config.questions);
 
 		this.sendJoin(this.host);

@@ -25,7 +25,7 @@ export default function init(element: HTMLElement): void {
 
 	let last = "";
 
-	form.addEventListener("submit", event => {
+	form.addEventListener("submit", async event => {
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -39,12 +39,11 @@ export default function init(element: HTMLElement): void {
 
 		if (stringified !== last) {
 			roomNotExisting.classList.add("d-none");
-			getClient().send(Types.S_ENTER_GAME, formData, data => {
-				if (data.success)
-					setSessionId(data.userID);
-				else
-					roomNotExisting.classList.remove("d-none");
-			});
+			const data = await getClient().send(Types.S_ENTER_GAME, formData);
+			if (data.success)
+				setSessionId(data.userID);
+			else
+				roomNotExisting.classList.remove("d-none");
 			last = stringified;
 		}
 	});

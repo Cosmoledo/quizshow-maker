@@ -2,7 +2,8 @@ import initJoinGame from "./join-game.js";
 import initHostGame from "./host-game.js";
 import {
 	showElement,
-	hideElement
+	hideElement,
+	isMobile
 } from "./methods.js";
 
 const introduction = document.querySelector("#introduction") as HTMLElement;
@@ -12,17 +13,18 @@ const formJoinGame = document.querySelector("#form-join-game") as HTMLElement;
 const hostGameButton = document.querySelector("#host-game") as HTMLButtonElement;
 const joinGameButton = document.querySelector("#join-game") as HTMLButtonElement;
 
-initHostGame(formHostGame);
-initJoinGame(formJoinGame);
+document.body.classList.toggle("mobile-view", isMobile());
 
 hostGameButton.addEventListener("click", async () => {
 	await hideElement(introduction);
-	await showElement(formHostGame);
+	showElement(formHostGame);
+	initHostGame(formHostGame);
 });
 
 joinGameButton.addEventListener("click", async () => {
 	await hideElement(introduction);
-	await showElement(formJoinGame);
+	showElement(formJoinGame);
+	initJoinGame(formJoinGame);
 });
 
 export async function reset(toDefault: boolean = true): Promise < void > {

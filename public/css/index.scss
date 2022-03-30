@@ -10,6 +10,15 @@ button {
 	&:active {
 		filter: brightness(90%);
 	}
+
+	&.btn-fab {
+		border-radius: 100%;
+		bottom: 20px;
+		padding: 0.5rem;
+		position: fixed;
+		right: 20px;
+		z-index: 1000;
+	}
 }
 
 textarea.form-control {
@@ -50,9 +59,12 @@ textarea.form-control {
 	}
 }
 
-.answer,
-.question {
-	min-height: 140px;
+[class^="game-"] {
+
+	.answer,
+	.question {
+		min-height: 140px;
+	}
 }
 
 .buzzer {
@@ -100,4 +112,132 @@ textarea.form-control {
 #players {
 	height: calc(100vh - 20px);
 	overflow: hidden auto;
+}
+
+#form-host-game {
+	@media (max-width: 575.98px) {
+		.flex-wrap {
+			justify-content: space-evenly !important;
+
+			.btn-toolbar {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	#question-container {
+		height: 80vh;
+		overflow: hidden auto;
+
+		.question-element {
+			align-items: center;
+			background-color: #EEE;
+			border-radius: 1.25rem;
+			justify-content: center;
+			padding: 1rem;
+			position: relative;
+
+			&.highlight {
+				animation: highlight 1000ms ease-out;
+
+				@keyframes highlight {
+					0% {
+						background-color: #F00;
+					}
+
+					100% {
+						background-color: #EEE;
+					}
+				}
+			}
+
+			.mobile-view>& {
+				margin-bottom: 0.5rem;
+				justify-content: start;
+
+				.icon-drag {
+					display: none;
+				}
+
+				div.col-2 {
+					width: calc(100% - 24px - var(--bs-gutter-x) * 0.5);
+				}
+			}
+
+			@media (max-width: 575.98px) {
+				div.col-2 {
+					width: calc(100% - 24px * 2 - var(--bs-gutter-x));
+				}
+
+				div.col-9 {
+					margin-top: 0.5rem;
+					order: 100;
+					width: 100%;
+				}
+			}
+		}
+
+		.drag-box {
+			background-color: #ddd;
+			border-radius: 0.25rem;
+			border: 4px dashed #bbb;
+			margin: 10px 0;
+			padding: 10px;
+
+			.mobile-view>& {
+				display: none;
+			}
+		}
+	}
+
+	#detailsModal .container-fluid span {
+
+		&:not([class]),
+		&[class=""] {
+			font-size: 1.25rem;
+			text-decoration: underline;
+			text-decoration-style: dashed;
+		}
+	}
+}
+
+
+[class*="icon-"] {
+	display: block;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	height: 1em;
+	width: 1em;
+
+	&[class*="add"] {
+		background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'><path fill='white' fill-rule='evenodd' style='stroke: white; stroke-width: 0.5;' d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z'/></svg>");
+	}
+
+	&[class*="drag"] {
+		cursor: grab;
+		background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'><path d='m 0,9 h 16 v 2 H 0 Z M 0,5 H 16 V 7 H 0 Z m 8,11 3,-3 H 5 Z M 8,0 5,3 h 6 z'/></svg>");
+	}
+
+	&[class*="remove"] {
+		background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'><path d='M5.3 5.9a.5.5 0 0 1 .5.5v6.4a.5.5 0 0 1-1 0V6.4a.5.5 0 0 1 .5-.5Zm2.7 0a.5.5 0 0 1 .5.5v6.4a.5.5 0 0 1-1 0V6.4a.5.5 0 0 1 .5-.5Zm3.2.5a.5.5 0 0 0-1 0v6.4a.5.5 0 0 0 1 0z'/><path fill-rule='evenodd' d='M15 3.2a1 1 0 0 1-1 1h-.6V14a2.2 2.1 0 0 1-2.2 2.1H4.8a2.2 2.1 0 0 1-2.2-2.1V4.3h-.5A1 1 0 0 1 1 3.2v-1A1 1 0 0 1 2 1h3.8A1 1 0 0 1 7 0h2.2a1 1 0 0 1 1 1H14A1 1 0 0 1 15 2.2Zm-11.2 1-.1.1V14a1 1 0 0 0 1 1h6.5a1 1 0 0 0 1.1-1V4.3h-.1Zm-1.7-1v-1h11.8v1Z'/></svg>");
+	}
+}
+
+::-webkit-scrollbar {
+	width: 14px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 14px 14px transparent;
+	border: solid 4px transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 14px 14px #bbbbbe;
+	border: solid 4px transparent;
+	border-radius: 14px;
+}
+
+::-webkit-scrollbar-button {
+	display: none;
 }
