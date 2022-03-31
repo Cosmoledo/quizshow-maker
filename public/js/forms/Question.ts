@@ -1,6 +1,9 @@
 import {
 	Config
 } from "../../../index.js";
+import {
+	translate
+} from "../index.js";
 
 export const Box = (() => {
 	let dragElement: HTMLElement | undefined;
@@ -92,13 +95,13 @@ export default class Question {
 		const html = `
 			<span class="icon-drag col-1 fs-5" draggable="true"></span>
 			<div class="col-9 d-flex flex-column gap-2">
-				<input class="form-control question" placeholder="Enter the question here..." type="text">
-				<input class="form-control answer" placeholder="Enter the answer here..." type="text">
+				<input class="form-control question" placeholder="${translate("Question")}..." type="text">
+				<input class="form-control answer" placeholder="${translate("Answer")}..." type="text">
 			</div>
 			<div class="col-2">
 				<select class="form-select overflow-hidden" size="2">
-					<option value="BUZZER" selected>Buzzer</option>
-					<option value="ESTIMATE">Estimate</option>
+					<option value="BUZZER" selected>${translate("Buzzer")}</option>
+					<option value="ESTIMATE">${translate("Estimate")}</option>
 				</select>
 			</div>
 			<span class="icon-remove col-1 fs-5"></span>

@@ -35,7 +35,17 @@ export function translateElements(): void {
 	set("#form-join-game button:nth-of-type(2)", "Back");
 	set("#form-join-game #no-room", "RoomInvalid");
 
-	// set("#form-host-game", "Host");
+	set("#form-host-game .flex-wrap h1", "Host");
+	set("#form-host-game .flex-wrap #start", "StartGame");
+	set("#form-host-game .flex-wrap #details", "Details");
+	set("#form-host-game .flex-wrap #import", "Import");
+	set("#form-host-game .flex-wrap #export", "Export");
+	set("#form-host-game #detailsModal .modal-title", "Details");
+	set("#form-host-game #detailsModal .modal-body [data-group='points']", "HintPoints", "title");
+	set("#form-host-game #detailsModal .modal-body [data-group='points']", "Score");
+	set("#form-host-game #detailsModal .modal-body [for='points-correct']", "Correct");
+	set("#form-host-game #detailsModal .modal-body [for='points-wrong']", "Wrong");
+	set("#form-host-game #detailsModal .modal-footer button", "Save");
 
 	set("#game-player .question", "WaitingToStart");
 	set("#game-player #estimate-container textarea", "EstimateInput", "placeholder");

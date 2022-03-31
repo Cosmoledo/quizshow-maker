@@ -67,15 +67,15 @@
 
 		<section id="form-host-game" class="py-2 text-center container d-none">
 			<div class="d-flex justify-content-between flex-wrap align-items-center pb-2 mb-3 border-bottom">
-				<h1 class="h2">Spiel erstellen</h1>
-				<button id="start" type="button" class="btn btn-primary px-5">Start</button>
+				<h1 class="h2"></h1>
+				<button id="start" type="button" class="btn btn-primary px-5"></button>
 				<div class="btn-toolbar mb-10 mb-md-0">
 					<div class="btn-group me-5">
-						<button id="details" type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#detailsModal">Details</button>
+						<button id="details" type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#detailsModal"></button>
 					</div>
 					<div class="btn-group">
-						<button id="import" type="button" class="btn btn-sm btn-outline-secondary">Import</button>
-						<button id="export" type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+						<button id="import" type="button" class="btn btn-sm btn-outline-secondary"></button>
+						<button id="export" type="button" class="btn btn-sm btn-outline-secondary"></button>
 					</div>
 				</div>
 			</div>
@@ -85,26 +85,26 @@
 				<div class="modal-dialog modal-dialog-scrollable">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title">Details</h5>
+							<h5 class="modal-title"></h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 						</div>
 						<div class="modal-body">
 							<div class="container-fluid text-start was-validated">
-								<span data-bs-toggle="tooltip" data-bs-placement="bottom" title="Werden nach jedem Raten verteilt, 'Richtig' sollte der Anzahl der Spieler entsprechen">Punkte:</span>
+								<span data-group="points" data-bs-toggle="tooltip" data-bs-placement="bottom"></span>
 								<div class="my-2 row">
 									<div class="input-group col-6">
-										<span class="input-group-text">Richtig</span>
+										<span class="input-group-text" for="points-correct"></span>
 										<input name="points-correct" type="text" class="form-control" value="auto" pattern="auto|(\d+)">
 									</div>
 									<div class="input-group col-6">
-										<span class="input-group-text">Falsch</span>
+										<span class="input-group-text" for="points-wrong"></span>
 										<input name="points-wrong" type="number" class="form-control" value="1" min="0" max="100" pattern="[0-9]+">
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Speichern</button>
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal"></button>
 						</div>
 					</div>
 				</div>

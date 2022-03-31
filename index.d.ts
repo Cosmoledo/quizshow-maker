@@ -1,6 +1,6 @@
 // SHARED
 
-export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "Done" | "EnterCredentials" | "Estimate" | "EstimateInput" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "Host" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Score" | "StartGame" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
+export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "Details" | "Done" | "EnterCredentials" | "Estimate" | "EstimateInput" | "Export" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "HintPoints" | "Host" | "Import" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "Question" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Save" | "Score" | "StartGame" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
 
 export const enum Types {
 	C_GAME_QUESTION = "C_GAME_QUESTION",

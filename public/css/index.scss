@@ -197,10 +197,14 @@ textarea.form-control {
 			font-size: 1.25rem;
 			text-decoration: underline;
 			text-decoration-style: dashed;
+
+			&::after {
+				content: ":";
+				display: inline-block;
+			}
 		}
 	}
 }
-
 
 [class*="icon-"] {
 	display: block;
