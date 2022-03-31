@@ -95,8 +95,8 @@ export default class Question {
 		const html = `
 			<span class="icon-drag col-1 fs-5" draggable="true"></span>
 			<div class="col-9 d-flex flex-column gap-2">
-				<input class="form-control question" placeholder="${translate("Question")}..." type="text">
-				<input class="form-control answer" placeholder="${translate("Answer")}..." type="text">
+				<input class="form-control question" placeholder="${translate("Question")}..." type="text" required>
+				<input class="form-control answer" placeholder="${translate("Answer")}..." type="text" required>
 			</div>
 			<div class="col-2">
 				<select class="form-select overflow-hidden" size="2">

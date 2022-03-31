@@ -71,3 +71,13 @@ export function downloadFile(filename: string, text: string): void {
 	element.click();
 	document.body.removeChild(element);
 }
+
+export function hasPseudoClass(element: HTMLElement, pseudo: string): boolean {
+	const nativeMatches = (element.matches || (element as any).msMatchesSelector);
+
+	try {
+		return nativeMatches.call(element, pseudo);
+	} catch (error) {
+		return false;
+	}
+}

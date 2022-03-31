@@ -11,6 +11,12 @@ import {
 	downloadFile
 } from "./methods.js";
 
+function isConfigJsonValid(json: any): Promise < boolean > {
+	return getClient().send(Types.S_VALIDATE_CONFIG, {
+		json
+	});
+}
+
 export default function init(element: HTMLElement): void {
 	QuestionHandler.tryCreateQuestion();
 
@@ -38,19 +44,16 @@ export default function init(element: HTMLElement): void {
 			if (!file)
 				return;
 
-			let content = await file.text();
+			const content = await file.text();
 			let json;
 			try {
 				json = JSON.parse(content);
-				content = JSON.stringify(json);
 			} catch (error) {
 				alert("File can't be parsed as JSON!");
 				return;
 			}
 
-			const valid = await getClient().send(Types.S_VALIDATE_CONFIG, {
-				jsonString: content
-			});
+			const valid = await isConfigJsonValid(json);
 
 			if (!valid) {
 				alert("File is JSON but does not match the schema! Download an export to see the schema.");
@@ -78,24 +81,21 @@ export default function init(element: HTMLElement): void {
 	// start game button
 	const button = element.querySelector("#start") as HTMLButtonElement;
 	button
-		.addEventListener("submit", async event => {
-			event.preventDefault();
-			event.stopPropagation();
+		.addEventListener("click", async () => {
+			if (!QuestionHandler.validate())
+				return;
 
-			let config;
-			try {
-				config = JSON.parse(configArea.value);
-				if (typeof config !== "object")
-					throw new Error("Invalid JSON");
-			} catch (error) {
-				alert("Invalid JSON");
+			const json = QuestionHandler.getJson();
+
+			if (!(await isConfigJsonValid(json))) {
+				alert("Content does not match the schema!");
 				return;
 			}
 
 			console.log("sending to server");
 
 			const data = await getClient().send(Types.S_CREATE_NEW_ROOM, {
-				config
+				config: json
 			});
 
 			if ("URLSearchParams" in window) {

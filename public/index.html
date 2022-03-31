@@ -94,11 +94,11 @@
 								<div class="my-2 row">
 									<div class="input-group col-6">
 										<span class="input-group-text" for="points-correct"></span>
-										<input name="points-correct" type="text" class="form-control" value="auto" pattern="auto|(\d+)">
+										<input name="points-correct" type="text" class="form-control" value="auto" pattern="auto|(\d{1,})" required>
 									</div>
 									<div class="input-group col-6">
 										<span class="input-group-text" for="points-wrong"></span>
-										<input name="points-wrong" type="number" class="form-control" value="1" min="0" max="100" pattern="[0-9]+">
+										<input name="points-wrong" type="number" class="form-control" value="1" min="0" max="100" pattern="\d{1,}" required>
 									</div>
 								</div>
 							</div>

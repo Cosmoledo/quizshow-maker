@@ -119,13 +119,8 @@ io.use((socket: any, next) => {
 				break;
 
 			case Types.S_VALIDATE_CONFIG:
-				try {
-					const json = JSON.parse(payload.jsonString);
-					const isValid = ConfigValidator(json);
-					callback(isValid);
-				} catch (error) {
-					callback(false);
-				}
+				const isValid = ConfigValidator(payload.json);
+				callback(isValid);
 				break;
 
 			default:

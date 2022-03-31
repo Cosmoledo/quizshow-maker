@@ -1,6 +1,9 @@
 import {
 	Config
 } from "../../../index.js";
+import {
+	hasPseudoClass
+} from "./methods.js";
 import Question, {
 	Box
 } from "./Question.js";
@@ -18,20 +21,9 @@ Box.onAfterDrop = (parent: HTMLElement) => {
 	});
 };
 
-const questionsContainer = document.querySelector("#question-container") as HTMLDivElement;
-
-function createQuestion(): Question {
-	const q = new Question(questionsContainer, () => {
-		questions.splice(questions.indexOf(q), 1);
-	});
-
-	questions.push(q);
-
-	return q;
-}
-
 const QuestionDetails = (() => {
 	const modalElement = document.querySelector("#detailsModal") as HTMLDivElement;
+	const modal: bootstrap.Modal = (window as any).bootstrap.Modal.getOrCreateInstance(modalElement);
 
 	function set(data: any, path = ""): void {
 		if (typeof (data) === "object")
@@ -63,7 +55,7 @@ const QuestionDetails = (() => {
 
 	return {
 		set,
-		get: (): Config.Settings => {
+		get(): Config.Settings {
 			const elements = (Array.from(modalElement.querySelectorAll("[name]")) as HTMLInputElement[]);
 
 			const settings: any = {};
@@ -77,9 +69,30 @@ const QuestionDetails = (() => {
 				});
 
 			return settings;
-		}
+		},
+		validate(): boolean {
+			const isValid = !Array.from(modalElement.querySelectorAll("input"))
+				.some(element => hasPseudoClass(element, ":invalid"));
+
+			if (!isValid)
+				modal.show();
+
+			return isValid;
+		},
 	};
 })();
+
+const questionsContainer = document.querySelector("#question-container") as HTMLDivElement;
+
+function createQuestion(): Question {
+	const q = new Question(questionsContainer, () => {
+		questions.splice(questions.indexOf(q), 1);
+	});
+
+	questions.push(q);
+
+	return q;
+}
 
 const QuestionHandler = {
 	element: questionsContainer,
@@ -110,7 +123,22 @@ const QuestionHandler = {
 			settings: QuestionDetails.get(),
 			questions: questions.map(q => q.getData())
 		};
-	}
+	},
+	validate(): boolean {
+		if (!QuestionDetails.validate())
+			return false;
+
+		questionsContainer.classList.add("was-validated");
+		const isValid = !Array.from(questionsContainer.querySelectorAll("input"))
+			.some(element => {
+				const invalid = hasPseudoClass(element, ":invalid");
+				if (invalid)
+					element.scrollIntoView();
+				return invalid;
+			});
+
+		return isValid;
+	},
 };
 
 export default QuestionHandler;
