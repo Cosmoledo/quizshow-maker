@@ -137,7 +137,11 @@ export default class QuestionHandler {
 		this.guesses = ({}) as any;
 
 		if (payload.correct) {
-			this.score[payload.id] += this.room.config.settings.points.correct;
+			const correct = this.room.config.settings.points.correct;
+			if (correct === "auto")
+				this.score[payload.id] += this.room.playerAmount;
+			else
+				this.score[payload.id] += correct;
 
 			const scoreChange = ({
 				id: payload.id,

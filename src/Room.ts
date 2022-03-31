@@ -21,6 +21,10 @@ export default class Room {
 		return this.roomID;
 	}
 
+	public get playerAmount(): number {
+		return this.players.length;
+	}
+
 	constructor(id: string, socket: SessionSocket, config: Config.root) {
 		socket.join(id);
 

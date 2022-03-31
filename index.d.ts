@@ -72,7 +72,7 @@ declare module Config {
 	}
 
 	export interface Points {
-		correct: number;
+		correct: "auto" | number;
 		wrong: number;
 	}
 
