@@ -1,0 +1,190 @@
+{
+	"settings": {
+		"points": {
+			"correct": "auto",
+			"wrong": "1"
+		}
+	},
+	"questions": [
+		{
+			"answer": "01.01.2002",
+			"id": "ad6865f0-7fc8-48c6-b3bd-93d41bbabaaa",
+			"question": "Wann wurde das Euro-Bargeld eingeführt?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "23",
+			"id": "9cba2257-cd18-4c7b-ad99-197d1c8c4ac5",
+			"question": "Wie viele Bandscheiben findet man in der Wirbelsäule von gesunden Menschen?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Medikamentenvergiftung",
+			"id": "4a8affc0-5810-48de-bb8f-d885b5f14b13",
+			"question": "Wie kam die Ikone Marilyn Monroe ums Leben?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "3.05",
+			"id": "63fc1e75-6377-4099-9fa5-b0044f661d41",
+			"question": "In welcher Höhe hängt der Korb beim Basketball?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Seismograph",
+			"id": "b1997237-31a1-474a-af48-ccac269abe55",
+			"question": "Welches Instrument registriert die Erschütterungen eines Erdbebens?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "2010",
+			"id": "0281418d-db4b-4368-b120-7c3762d84201",
+			"question": "Wann wurde das erste iPad von Apple verkauft?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "25. Juni 2009",
+			"id": "972f1a2c-ac96-489d-8bf7-6c910d5618e7",
+			"question": "Wann starb Pop-Ikone Michael Jackson?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "30.000.000",
+			"id": "6a915292-39f5-4b5e-aee4-c61d786cf4cb",
+			"question": "Wie viele Weihnachtsbäume werden in Deutschland pro Jahr verkauft?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "336",
+			"id": "c353b420-7fc0-44f5-a2fc-fa6009181a2d",
+			"question": "Wie viele Einkerbungen hat ein Golfball?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Der Mars",
+			"id": "674db84d-d902-4ad7-a77f-92fa3ad3e13f",
+			"question": "Welcher ist der \"rote Planet\" unseres Sonnensystems?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "56",
+			"id": "38834dfa-197f-4714-92b3-4f06eeb8ada0",
+			"question": "Aus wie vielen Kräutern wird Jägermeister gemacht?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "206",
+			"id": "63a70bbf-586e-4bf9-a703-ccf9c233ff11",
+			"question": "Wie viele Knochen hat ein Erwachsenenkörper?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Tante",
+			"id": "cf86cb5b-016e-486d-b45d-0b436dd7351f",
+			"question": "Wie nennt man die Schwester der Mutter?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Seepferdchen",
+			"id": "581ac50a-6261-452d-a74c-fe6e8e535e3c",
+			"question": "Bei welcher Tierart werden die Männchen schwanger?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Schwert",
+			"id": "d3c29e1a-31af-4efd-aaa0-4bb641f72a82",
+			"question": "Was ist ein Falchion?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Ein japanisches Heilbad",
+			"id": "3b0f75a0-a8fc-4e10-b8a7-e40b03e5448c",
+			"question": "Was ist ein Onsen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Vogelarten",
+			"id": "dffc4138-c615-4190-bc7f-cb6964e23c37",
+			"question": "Mit was beschäftigt sich ein Ornithologe?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "42.195",
+			"id": "3bcd33cb-a59d-4b9a-ba64-79a62260c7db",
+			"question": "Wie viele Meter läuft man bei einem Marathon?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Vier",
+			"id": "3c75de53-1701-4638-b015-b5d08514e07d",
+			"question": "Wie viele Pferde sind auf dem Brandenburger Tor zu sehen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Nutze den Tag",
+			"id": "7e2294b0-78cc-4eec-967e-91d8547fb6b7",
+			"question": "Was bedeutet das lateinische \"carpe diem\"?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Weiß, Gelb, Orange, Grün, Blau / Violett, Braun, Schwarz",
+			"id": "d5a84831-c3d4-4e16-aec6-341a4bae21cc",
+			"question": "Welche Gürtelfarben existieren im Kampfsport Karate?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "40.070.000",
+			"id": "01829b96-9aad-4515-a4dd-690707d6da16",
+			"question": "Folgt man dem Äquator um die Welt, legt man wie viele Meter zurück?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Vögeln",
+			"id": "0063c0bf-5317-4ed4-8ffd-64e3ef57ef6f",
+			"question": "Mit welcher Tiergruppe sind die Dinosaurier am engsten verwandt?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Silber",
+			"id": "ed2af9eb-8285-4ffa-a50a-8ded516514c3",
+			"question": "Welches Metall leitet Wärme am besten?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "1945",
+			"id": "3ba4669e-df1f-41d6-a703-4994f5012322",
+			"question": "Wann endete der 2. Weltkrieg?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Vitamin D",
+			"id": "b0e59cc1-ff67-4dc4-b27b-efdf209155a5",
+			"question": "Welches Vitamin wird mithilfe von Sonnenlicht im Körper gebildet?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "11",
+			"id": "c6bb72c6-4630-4893-8c27-ce0b50e4a27c",
+			"question": "Wie viele Oscars gewann der Film \"Titanic\"?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Die Würde des Menschen ist unantastbar.",
+			"id": "5e083df3-3b96-44de-9df0-650304220204",
+			"question": "Wie beginnt Artikel 1 des deutschen Grundgesetzes?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "21.000",
+			"id": "6327dd79-67e9-4140-af2a-fa36e16895ee",
+			"question": "Wie lang ist die Chinesische Mauer ungefähr?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "20.000",
+			"id": "5fefde27-c3ca-4582-9e3c-fafac2b0b1a3",
+			"question": "Wie viele Atemzüge macht der menschliche Körper täglich?",
+			"type": "ESTIMATE"
+		}
+	]
+}

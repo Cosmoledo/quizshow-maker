@@ -1,0 +1,286 @@
+{
+	"settings": {
+		"points": {
+			"correct": "auto",
+			"wrong": "1"
+		}
+	},
+	"questions": [
+		{
+			"answer": "Jacob und Wilhelm",
+			"id": "d4de405e-9469-4402-a9d5-038e5171a6da",
+			"question": "Wie heißen die Gebrüder Grimm mit Vornamen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Haut so weiß wie Schnee, Lippen so rot wie Blut, Haare so schwarz wie Ebenholz",
+			"id": "a873f287-8140-47c4-9e08-3826e703e06f",
+			"question": "Beschreibe das Aussehen von Schneewittchen im Wortlaut des gleichnamigen Märchens.",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Tauben",
+			"id": "78d0d96f-856f-4980-9def-73b97bc2fa22",
+			"question": "Welche Tiere helfen Aschenputtel beim Sortieren der Körner?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Wilhelm Hauff",
+			"id": "6c8e764c-7bd0-4538-b5a5-f6bc757d71c2",
+			"question": "Wer schrieb \"Die Geschichte des kleinen Muck\"?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Der eiserne Heinrich",
+			"id": "499465dc-3dc8-4119-8ae9-7982cd4a97aa",
+			"question": "Wie wird der Froschkönig noch genannt?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Chef (Anführer, trägt eine kleine Nickelbrille und ist sehr gutmütig), Brummbär / Grumpy (meist schlecht gelaunt, hat immer etwas auszusetzen), Schlafmütz / Sleepy (ist immer müde und schläft meistens), Hatschi / Sneezy (klobige, rote Nase, ist immer erkältet und ein eher ängstlicher, scheuer Zwerg), Pimpel / Bashful (weißer Bart, lange Wimpern, extrem schüchterner Zwerg, wird oft rot und ist heimlich in Schneewittchen verliebt), Happy (glücklicher Zwerg, dick, mit weißem Bart und immer einem Grinsen im Gesicht), Seppel / Dopey (der jüngste Zwerg, kann nicht sprechen, ist extrem tollpatschig, hat keine Haare und trägt zu große Klamotten)",
+			"id": "1684a44b-0d14-429a-8d49-4e0961af513b",
+			"question": "Nenne einen Namen der Sieben Zwerge (Nach Walt Disney).",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Maleficent",
+			"id": "373c9a33-deab-4d9e-94b8-9bc4bb36d244",
+			"question": "Wer ist der Bösewicht in Dornröschen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Nichts",
+			"id": "7a54f9a9-7007-465f-b432-2de4f9e9ccb7",
+			"question": "Womit kommt Hans aus \"Hans im Glück\" schließlich nach Hause?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Weil er am Ende der Strecke seine ihm zum Verwechseln ähnlich aussehende Frau platziert hat",
+			"id": "f8dcf5a1-55d7-46bb-a074-0dc1fc647526",
+			"question": "Warum gewinnt der Igel in \"Der Hase und der Igel\" das Wettrennen mit dem Hasen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Esel, Hund, Katze und Hahn",
+			"id": "a42e0e85-a13f-4960-ab53-8de8561840c8",
+			"question": "Aus welchen Tieren bestehen die Bremer Stadtmusikanten?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "200",
+			"id": "4f7e0811-b8da-4686-8c8d-d0890b70572b",
+			"question": "Wie viele Märchen sind ab der 6. Auflage der Kinder und Hausmärchen von den Gebrüdern Grimm vorhanden?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Hans Christian Andersen",
+			"id": "5e6d6eef-2f99-45b1-a95a-4653891410cf",
+			"question": "Wer schrieb \"Das hässliche Entlein\"?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Kopenhagen, Dänemark",
+			"id": "4576fce6-e822-48eb-b11b-0391588586db",
+			"question": "Woher kommt H.C.A.?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Mithilfe von Zauberpulver",
+			"id": "959f5771-d857-424b-bb41-16e5fce6541f",
+			"question": "Womit verwandeln sich der Kalif und sein Wesir im Märchen \"Kalif Storch\" in Störche?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Der Jäger",
+			"id": "3ddb2ff7-735c-434c-8f2c-163975bcd9ea",
+			"question": "Wer befreit Rotkäppchen und die Großmutter aus dem Bauch des bösen Wolfes?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Reh, Stiefmutter, Trinken aus einer verhexten Quelle",
+			"id": "22bb1ed2-ecd2-49d6-ba9a-fb7c7e285edc",
+			"question": "In was wird das Brüderchen in \"Brüderchen und Schwesterchen\" verwandelt und von wem durch was?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Im Schlaraffenland",
+			"id": "ddb6bd72-178f-4721-8109-9aa6b1c5709a",
+			"question": "Wo fließen Milch, Honig und Wein statt Wasser?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "7",
+			"id": "02e03248-c5b9-481d-9db0-db9f7c99a703",
+			"question": "Wie viele Fliegen erschlägt das Tapfere Schneiderlein?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Die Gänsemagd",
+			"id": "6d862cba-f7c9-40c4-a18f-cb0e56654dce",
+			"question": "In welchem Märchen kommt das Pferd Falada vor?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Der Froschkönig",
+			"id": "9c1f599b-0fa1-4712-9595-39284745e9e4",
+			"question": "Welches Märchen ist das Märchen Nummer Eins in KHM? Schneewittchen, Hänsel und Gretel, Der Wolf und die sieben Geißlein, Der Froschkönig",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "1.000 DM",
+			"id": "695fda49-6341-4103-917d-d517817b3031",
+			"question": "Auf welchem Geldschein war das Bildnis der Gebrüder Grimm zu sehen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "In dem Märchen sehen Kinder wie ihr Vater ein Schwein schlachtet. Sie ahmen dies an ihrem Bruder nach, nach einer Kettenreaktion sind am Ende alle Familienmitglieder tot.",
+			"id": "28341f37-e4c6-4118-8092-af55dff65043",
+			"question": "Wieso wurde das Märchen \"Wie Kinder schlachten miteinander gespielt haben\" aus dem KHM gestrichen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Weil das Mädchen arm ist und trotzdem ihr letztes Hemd an ein anderes Kind verschenkt.",
+			"id": "abe68e6e-d4f0-4178-bbd6-8699af5424bc",
+			"question": "Warum fallen im Märchen Sterntaler für ein Mädchen die Sterne in Form von Goldtalern vom Himmel?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Hans Christian Andersen",
+			"id": "96f308a9-c218-4ed6-9209-644f44b7b4ba",
+			"question": "Wer schrieb \"Das Mädchen mit den Schwefelhölzern\"?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Auf den Rat der Mutter hin schneidet sich die erste die Ferse und die zweite den großen Zeh ab.",
+			"id": "b3f58d2b-7a74-4237-8b6a-feed6dcb0f0c",
+			"question": "Was machen Aschenputtels Stiefschwestern, um in den Glasschuh zu passen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Weil ihre Mutter während der Schwangerschaft gerne Rapunzel-Salat gegessen hat.",
+			"id": "181d1105-18b5-41d0-8d3f-f48d93932b6a",
+			"question": "Woher hat Rapunzel ihren Namen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Weil die Mädchen ihm den Bart stutzen.",
+			"id": "84188c80-e7c1-4af3-aec5-e54474e5ca76",
+			"question": "Schneeweißchen und Rosenrot helfen einem Zwerg mehrmals aus einer misslichen Lage, doch der ist undankbar und schimpft, weshalb?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "160",
+			"id": "40a991a8-f223-4c7a-8fe1-e046e0ee06f8",
+			"question": "In wie viele Sprachen ist KHM übersetzt?",
+			"type": "ESTIMATE"
+		},
+		{
+			"answer": "Froschkönig",
+			"id": "f9bffcda-4d4e-43a0-8043-c6649e3351c4",
+			"question": "\"Heinrich, der Wagen bricht!\" Aus welchem Märchen stammt dieser Satz?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Aschenputtels Mutter",
+			"id": "b0790494-ce4a-48e5-8d4b-f954b89839f0",
+			"question": "\"Bäumchen, rüttel dich und schüttel dich, wirf Gold und Silber über mich!\" An wessen Grab befindet sich besagtes Bäumchen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Max und Moritz - Erster Streich",
+			"id": "e689d86b-1e34-4d30-83c4-ae0ee9582825",
+			"question": "\"Jedes legt noch schnell ein Ei und dann kommt der Tod herbei.\" Dieser Reim stammt aus welcher Geschichte?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "...die Schlechten ins Kröpfchen",
+			"id": "f1757d2c-41ce-4239-9d4f-c4095260ab74",
+			"question": "Vervollständige: \"Die guten ins Töpfchen...\"",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Jagdgewand, Ballkleid, Brautkleid",
+			"id": "26f69c66-eddf-4004-9e0f-9efdd0d2177c",
+			"question": "Welche drei Outfits erhält Aschenbrödel aus ihren drei Haselnüssen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Jadis",
+			"id": "3d4ec3b4-8103-4a44-9329-7266d4950c9c",
+			"question": "Wie heißt die Königin von Narnia, welche 100 Jahre Winter über Narnia brachte?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Apfel / Kamm",
+			"id": "133fa529-54bf-4861-9e24-61af68f4cd39",
+			"question": "Womit vergiftet die böse Königin Schneewittchen?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Geschichten aus tausendundeiner Nacht",
+			"id": "e0aef3bf-141c-4264-b142-429ba681845a",
+			"question": "Wie heißt die Geschichtensammlung, aus der auch \"Ali Baba und die 40 Räuber\" entstammt?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Er hat einen Baum gefällt und dort saß in den Wurzeln eine Gans mit Federn von reinem Gold.",
+			"id": "cfee1dfd-865e-44d5-b01b-9d1681a77457",
+			"question": "Wie kommt der Dummling zur Goldenen Gans?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Pferd",
+			"id": "806d41f2-35d7-413c-89b1-4cac7de99f71",
+			"question": "Hans im Glück tauscht einen Goldklumpen ein, den er für sieben Jahre treuen Dienst erhielt. Was bekommt er dafür?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Lebkuchen",
+			"id": "b634f23a-0baf-4cd3-b828-73cef6857ca8",
+			"question": "Aus welchem Baumaterial besteht das Hexenhaus in \"Hänsel und Gretel\"?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "100",
+			"id": "8388a3a4-a050-4df4-94a8-1bc6c07d7e80",
+			"question": "Wie viele Jahre schläft Dornröschen, bevor sie wachgeküsst wird?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Schneeweißchen",
+			"id": "dd83dd27-b7cf-4b07-aba9-e57c00748508",
+			"question": "Wie heißt die Schwester von Rosenrot?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Frau Holle",
+			"id": "8c0396bd-e4d7-43ce-b40f-d89c483e9029",
+			"question": "Wem schüttelt Goldmarie die Betten aus?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Für seine Stiefel",
+			"id": "0c0eee27-8f65-43d8-a5ed-102a8e48a52e",
+			"question": "Wofür ist der wohl berühmteste Kater der Welt bekannt?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Junge, der Zauberlehrling wird",
+			"id": "881ab67d-62ae-4cf8-9acb-8f5cbb012046",
+			"question": "Wer ist Krabat?",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "Stroh, Holz und Stein",
+			"id": "fa98542d-8895-4a40-a45c-0ecc921cd602",
+			"question": "Nenne alle drei Materialien, aus denen die drei kleinen Schweinchen im gleichnamigen Roman ihre Häuser bauen.",
+			"type": "BUZZER"
+		},
+		{
+			"answer": "... ach, wie gut, dass niemand weiß, dass ich Rumpelstilzchen heiß!",
+			"id": "33a3aa39-c2a5-40f8-863b-a5319e47735f",
+			"question": "Vervollständige: \"Heute back ich, morgen brau ich, übermorgen hol ich mir der Königin ihr Kind. ...\"",
+			"type": "BUZZER"
+		}
+	]
+}

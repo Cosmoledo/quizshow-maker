@@ -22,7 +22,7 @@ Box.onAfterDrop = (parent: HTMLElement) => {
 };
 
 const QuestionDetails = (() => {
-	const modalElement = document.querySelector("#detailsModal") as HTMLDivElement;
+	const modalElement = document.querySelector("#details-modal") as HTMLDivElement;
 	const modal: bootstrap.Modal = (window as any).bootstrap.Modal.getOrCreateInstance(modalElement);
 
 	function set(data: any, path = ""): void {

@@ -1,0 +1,24 @@
+{
+	"games": [
+		{
+			"creator": {
+				"name": "Cosmoledo",
+				"website": "https://github.com/Cosmoledo"
+			},
+			"id": "dd895719-9a09-475e-8a71-822b044fed55",
+			"language": "de-de",
+			"name": "Allgemeinwissen",
+			"pr": "build-in"
+		},
+		{
+			"creator": {
+				"name": "Cosmoledo",
+				"website": "https://github.com/Cosmoledo"
+			},
+			"id": "f598c147-b77d-48c5-8363-af896ed3871d",
+			"language": "de-de",
+			"name": "Märchenfragen",
+			"pr": "build-in"
+		}
+	]
+}

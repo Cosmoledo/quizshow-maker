@@ -1,6 +1,6 @@
 // SHARED
 
-export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "Details" | "Done" | "EnterCredentials" | "Estimate" | "EstimateInput" | "Export" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "HintPoints" | "Host" | "Import" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "Question" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Save" | "Score" | "StartGame" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
+export type LOCALE_KEYS = "Answer" | "Back" | "Buzzer" | "Correct" | "Close" | "Details" | "Done" | "EnterCredentials" | "Estimate" | "EstimateInput" | "Export" | "GameCode" | "GameWillStart" | "GuessWillBeHere" | "HintBuzzer" | "HintEstimate" | "HintPoints" | "Host" | "Import" | "ImportAlreadyExisting" | "ImportFromFile" | "ImportModalText" | "Introduction" | "InvalidGameCode" | "InvalidNickname" | "Join" | "NextQuestion" | "Nickname" | "Question" | "QuestionNotReadComplete" | "ReadQuestion" | "RoomDeleted" | "RoomInvalid" | "Save" | "Score" | "StartGame" | "WaitingForPlayers" | "WaitingToStart" | "Wrong";
 
 export const enum Types {
 	C_GAME_QUESTION = "C_GAME_QUESTION",
@@ -14,6 +14,8 @@ export const enum Types {
 		S_ROOM_EVENT = "S_ROOM_EVENT",
 		S_SET_SESSION_ID = "S_SET_SESSION_ID",
 		S_VALIDATE_CONFIG = "S_VALIDATE_CONFIG",
+		S_GET_EXISTING_GAME = "S_GET_EXISTING_GAME",
+		S_GET_EXISTING_GAMES = "S_GET_EXISTING_GAMES",
 }
 
 export const enum RoomEvents {
@@ -83,6 +85,30 @@ declare module Config {
 	export interface root {
 		settings: Settings;
 		questions: Question[];
+	}
+}
+
+interface FilterGames {
+	filterByName ? : string;
+	id ? : 0
+}
+
+declare module ExistingGame {
+	export interface Creator {
+		name: string;
+		website: string;
+	}
+
+	export interface Game {
+		creator: Creator;
+		id: string;
+		language: string;
+		name: string;
+		pr: "build-in" | string;
+	}
+
+	export interface root {
+		games: Game[];
 	}
 }
 

@@ -16,6 +16,7 @@ export const settings = {
 	roomID: "",
 	playerID: "",
 	nickname: "",
+	language: ""
 };
 
 // execute magic for Tooltips from Bootstrap
@@ -55,7 +56,8 @@ getClient().get(Types.C_ROOM_NOT_FOUND, () => {
 // translation
 export let translate: (key: LOCALE_KEYS) => string;
 
-getClient().get(Types.C_TRANSLATIONS, translations => {
-	translate = key => translations[key] || key;
+getClient().get(Types.C_TRANSLATIONS, data => {
+	settings.language = data.language;
+	translate = key => data.translations[key] || key;
 	translateElements();
 });

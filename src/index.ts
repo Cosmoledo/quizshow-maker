@@ -12,6 +12,10 @@ import {
 import logger from "./Logger.js";
 import ConfigValidator from "./ConfigValidator.js";
 import {
+	getExistingGame,
+	getExistingGames
+} from "./ExistingGames.js";
+import {
 	SessionSocket,
 	Types
 } from "../index.js";
@@ -53,11 +57,14 @@ io.use((socket: any, next) => {
 (io as any).on("connection", (socket: SessionSocket) => {
 	socket.sessionID = uuid.v4();
 
-	socket.emit(Types.C_TRANSLATIONS, locale.getFullDict());
+	socket.emit(Types.C_TRANSLATIONS, {
+		language: socket.language.got,
+		translations: locale.getFullDict(),
+	});
 
 	logger.info("Connected: %s, requesting language %s, sending %s",
 		socket.sessionID,
-		socket.language.wanted,
+		socket.request.headers["accept-language"],
 		socket.language.got,
 	);
 	tryRelogIntoGame(socket);
@@ -121,6 +128,16 @@ io.use((socket: any, next) => {
 			case Types.S_VALIDATE_CONFIG:
 				const isValid = ConfigValidator(payload.json);
 				callback(isValid);
+				break;
+
+			case Types.S_GET_EXISTING_GAME:
+				const game = getExistingGame(payload.id);
+				callback(game);
+				break;
+
+			case Types.S_GET_EXISTING_GAMES:
+				const games = getExistingGames(payload as any);
+				callback(games);
 				break;
 
 			default:

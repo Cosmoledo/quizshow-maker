@@ -115,8 +115,12 @@ textarea.form-control {
 }
 
 #form-host-game {
-	@media (max-width: 575.98px) {
-		.flex-wrap {
+	#header-bar {
+		.dropdown-menu li {
+			cursor: pointer;
+		}
+
+		@media (max-width: 575.98px) {
 			justify-content: space-evenly !important;
 
 			.btn-toolbar {
@@ -190,7 +194,7 @@ textarea.form-control {
 		}
 	}
 
-	#detailsModal .container-fluid span {
+	#details-modal .container-fluid span {
 
 		&:not([class]),
 		&[class=""] {
@@ -201,6 +205,29 @@ textarea.form-control {
 			&::after {
 				content: ":";
 				display: inline-block;
+			}
+		}
+	}
+
+	#import-existing-modal {
+		#import-existing-list {
+			margin: 0 5px;
+
+			.game-element {
+				border-radius: 0.25rem;
+				padding: 10px 0;
+
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.075);
+				}
+
+				&.selected {
+					background-color: rgba(0, 255, 0, 0.075);
+				}
+
+				a {
+					color: var(--bs-body-color);
+				}
 			}
 		}
 	}
