@@ -10,7 +10,9 @@ module.exports = function (grunt) {
 					src: [
 						"./room-config.json",
 						"./locale.json",
+						"./room-config-schema.json",
 						"./public/assets/**",
+						"./existing-games/**",
 					],
 					dest: "build",
 				}]
