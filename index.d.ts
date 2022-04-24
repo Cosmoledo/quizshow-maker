@@ -20,15 +20,15 @@ export const enum Types {
 
 export const enum RoomEvents {
 	ANSWER = "ANSWER",
-		CHANGE_BUZZER = "CHANGE_BUZZER",
 		CHANGE_SCORE = "CHANGE_SCORE",
 		DECIDE_POINT = "DECIDE_POINT",
 		NEXT_QUESTION = "NEXT_QUESTION",
+		QUESTION_TRIED = "QUESTION_TRIED",
 		SHOW_QUESTION = "SHOW_QUESTION",
 		START_GAME = "START_GAME",
 }
 
-type BUZZER_CHANGE = "reset" | "disabled";
+type QUESTION_TRIED = "reset" | "disabled";
 
 export const enum PlayerEvents {
 	JOIN = "JOIN",
@@ -38,12 +38,12 @@ export const enum PlayerEvents {
 }
 
 interface PlayerEvent {
+	correct ? : QUESTION_TRIED;
+	guess: Guess;
 	id: string;
 	nickname: string;
 	score: number;
-	guess: Guess;
 	type: PlayerEvents | RoomEvents;
-	buzzer ? : BUZZER_CHANGE;
 }
 
 interface Guess {

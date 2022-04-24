@@ -113,6 +113,8 @@ export default class QuestionHandler {
 		user.socket.emit(Types.C_STARTED_GAME, {
 			message: "",
 			question: user.nickname === "host" || this.visible ? this.current : this.currentHidden,
+			score: user.nickname === "host" ? this.score : this.score[user.id],
+			currentQuestionIndex: this.index,
 			questionAmount: this.questions.length,
 			skipAnim: true,
 			timestamp: new Date().getTime(),
@@ -172,8 +174,8 @@ export default class QuestionHandler {
 			}
 
 		const reset = ({
-			type: RoomEvents.CHANGE_BUZZER,
-			buzzer: payload.correct ? "disabled" : "reset"
+			type: RoomEvents.QUESTION_TRIED,
+			correct: payload.correct ? "disabled" : "reset"
 		}) as PlayerEvent;
 
 		this.room.sendToHost(Types.C_PLAYER_CHANGE, reset);

@@ -29,14 +29,16 @@
 						"correct": {
 							"$id": "#root/settings/points/correct",
 							"title": "Correct",
-							"type": "string",
-							"pattern": "^auto|(\\d+)$"
+							"type": [
+								"integer",
+								"string"
+							],
+							"pattern": "^auto$"
 						},
 						"wrong": {
 							"$id": "#root/settings/points/wrong",
 							"title": "Wrong",
-							"type": "string",
-							"pattern": "^\\d+$"
+							"type": "integer"
 						}
 					}
 				}

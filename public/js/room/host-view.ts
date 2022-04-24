@@ -121,7 +121,7 @@ class Player {
 			// ESTIMATE
 			this.setText(guess.answer);
 			if (guess.final)
-				this.activateAnswerButtons(true);
+				this.activateAnswerButtons(true, false);
 		}
 	}
 
@@ -172,11 +172,18 @@ export default async function init(): Promise < void > {
 	});
 	//
 
+	let questionIndex = 0;
 	let questionAmount = 0;
 
 	getClient().get(Types.C_STARTED_GAME, async (data: any) => {
 		question.innerHTML = translate("GameWillStart");
+		questionIndex = data.currentQuestionIndex || 0;
 		questionAmount = data.questionAmount;
+		questionAmountsElement.innerHTML = questionIndex + " / " + questionAmount;
+
+		if (data.score)
+			for (const id in data.score)
+				players[id].setScore(data.score[id]);
 
 		const buzzers = Array.from(view.querySelectorAll(".BUZZER")) as HTMLElement[];
 		const estimates = Array.from(view.querySelectorAll(".ESTIMATE")) as HTMLElement[];
@@ -200,8 +207,6 @@ export default async function init(): Promise < void > {
 			});
 		});
 
-		let playedQuestions = 0;
-
 		const playQuestion = async (data: Config.ExtendedQuestion): Promise < void > => {
 			if (lastQuestionType !== data.type) {
 				lastQuestionType = data.type;
@@ -224,8 +229,8 @@ export default async function init(): Promise < void > {
 				nextQuestionButton.classList.remove("disabled");
 			}
 
-			playedQuestions++;
-			questionAmountsElement.innerHTML = playedQuestions + " / " + questionAmount;
+			questionIndex++;
+			questionAmountsElement.innerHTML = questionIndex + " / " + questionAmount;
 
 			question.innerHTML = data.question;
 			answer.innerHTML = data.answer;
@@ -287,9 +292,9 @@ export default async function init(): Promise < void > {
 					players[da.id].setScore(da.score);
 					break;
 
-				case RoomEvents.CHANGE_BUZZER:
+				case RoomEvents.QUESTION_TRIED:
 					for (const key in players)
-						players[key].reset();
+						da.correct === "reset" ? players[key].reset() : players[key].activateAnswerButtons(false);
 					break;
 
 				case RoomEvents.STOP_ESTIMATE:

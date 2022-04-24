@@ -79,7 +79,7 @@ export default async function init(): Promise < void > {
 		if (data.skipAnim) {
 			showElement(question);
 			score.classList.remove("me-auto");
-			score.innerHTML = "0";
+			score.innerHTML = (data.score || 0) + "";
 
 			playQuestion(data.question);
 		} else {
@@ -108,8 +108,8 @@ export default async function init(): Promise < void > {
 						score.innerHTML = da.score + "";
 						break;
 
-					case RoomEvents.CHANGE_BUZZER:
-						toggleBuzzerState(da.buzzer === "reset");
+					case RoomEvents.QUESTION_TRIED:
+						toggleBuzzerState(da.correct === "reset");
 						break;
 
 					default:

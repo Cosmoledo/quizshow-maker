@@ -21,6 +21,18 @@ Box.onAfterDrop = (parent: HTMLElement) => {
 	});
 };
 
+function getCorrectlyTyped(name: string, value: any): any {
+	switch (name) {
+		case "points-correct":
+			return value === "auto" ? value : parseInt(value);
+
+		case "points-wrong":
+			return parseInt(value);
+	}
+
+	return value;
+}
+
 const QuestionDetails = (() => {
 	const modalElement = document.querySelector("#details-modal") as HTMLDivElement;
 	const modal: bootstrap.Modal = (window as any).bootstrap.Modal.getOrCreateInstance(modalElement);
@@ -63,7 +75,7 @@ const QuestionDetails = (() => {
 			elements
 				.forEach(element => {
 					const key = element.getAttribute("name") as string;
-					const value = element.value;
+					const value = getCorrectlyTyped(key, element.value);
 
 					stringToObj(key.split("-"), value, settings);
 				});
