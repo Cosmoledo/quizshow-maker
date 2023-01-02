@@ -1,4 +1,9 @@
-$styles: ("solid", "double", "dotted", "dashed", "wavy") !default;
+$styles: (
+	"solid",
+	"double",
+	"dotted",
+	"dashed",
+	"wavy") !default;
 
 @each $style in $styles {
 	.text-#{$style} {

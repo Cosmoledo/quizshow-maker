@@ -1,10 +1,10 @@
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 
 import Localization from "localizationjs";
 import express from "express";
 import HTTPServer from "http";
-import uuid from "uuid";
 import {
 	Server as SocketIoServer
 } from "socket.io";
@@ -55,17 +55,18 @@ io.use((socket: any, next) => {
 });
 
 (io as any).on("connection", (socket: SessionSocket) => {
-	socket.sessionID = uuid.v4();
+	socket.sessionID = crypto.randomUUID();
 
 	socket.emit(Types.C_TRANSLATIONS, {
 		language: socket.language.got,
 		translations: locale.getFullDict(),
 	});
 
-	logger.info("Connected: %s, requesting language %s, sending %s",
+	logger.info(
+		"Connected: %s, requesting language %s, sending %s",
 		socket.sessionID,
 		socket.request.headers["accept-language"],
-		socket.language.got,
+		socket.language.got
 	);
 	tryRelogIntoGame(socket);
 
@@ -75,7 +76,7 @@ io.use((socket: any, next) => {
 	});
 
 	socket.onAny((type, payload: {
-		[key: string]: string
+		[key: string]: string;
 	}, callback) => {
 		logger.info("Action %s %s %s", type, socket.sessionID, payload);
 
@@ -86,12 +87,12 @@ io.use((socket: any, next) => {
 				break;
 
 			case Types.S_CREATE_NEW_ROOM:
-				const roomID = uuid.v4();
+				const roomID = crypto.randomUUID();
 				createRoom(roomID, socket, payload.config as any);
 
 				callback({
 					roomID,
-					userID: socket.sessionID
+					userID: socket.sessionID,
 				});
 				break;
 
@@ -100,7 +101,7 @@ io.use((socket: any, next) => {
 
 				if (!room) {
 					callback({
-						success: false
+						success: false,
 					});
 					break;
 				}
@@ -112,7 +113,7 @@ io.use((socket: any, next) => {
 
 				callback({
 					success: true,
-					userID: socket.sessionID
+					userID: socket.sessionID,
 				});
 				break;
 

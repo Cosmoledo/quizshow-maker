@@ -82,7 +82,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-htmlmin");
 	grunt.loadNpmTasks("grunt-sass");
-	grunt.loadNpmTasks("grunt-update-json");
+	grunt.loadNpmTasks("littleswan-grunt-update-json");
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-webpack");
 

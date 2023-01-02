@@ -144,7 +144,7 @@ export default class Question {
 
 	public getData(): Config.Question {
 		if (!this.id)
-			this.id = (window as any).uuidv4();
+			this.id = crypto.randomUUID();
 
 		return {
 			answer: this.answer.value,
